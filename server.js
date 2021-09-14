@@ -17,7 +17,7 @@ app.get("/", (req, res) => {
 });
 
 app.post("/api/student", (req, res) => {
-    const { student } = req.body;
+    let { student } = req.body;
     student = student.trim();
     students.push(student);
 
