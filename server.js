@@ -8,11 +8,21 @@ let rollbar = new Rollbar({
     captureUnhandledRejections: true
 });
 
+const students = [];
 const app = express();
 
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "/public/index.html"));
     rollbar.info("HTML file served successfully!");
+});
+
+app.post("/api/student", (req, res) => {
+    const { student } = req.body;
+    student = student.trim();
+    students.push(student);
+
+    rollbar.log("student added successfully", {author: "Cade", type: "Manual entry"});
+    res.status(200).send(students);
 });
 
 const port = process.env.PORT || 4000;
