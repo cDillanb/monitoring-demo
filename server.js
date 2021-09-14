@@ -18,8 +18,8 @@ app.get("/", (req, res) => {
 });
 
 app.post("/api/student", (req, res) => {
-    let { student } = req.body;
-    student = student.trim("");
+    let {student} = req.body;
+    student = student.trim();
     students.push(student);
 
     rollbar.log("student added successfully", {author: "Cade", type: "Manual entry"});
