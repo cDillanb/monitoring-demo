@@ -27,7 +27,7 @@ app.post("/api/student", (req, res) => {
   if (index === -1 && name !== "") {
     students.push(name);
     rollbar.log("Student added successfully", {
-      author: "Scott",
+      author: "Cade",
       type: "manual entry",
     });
     res.status(200).send(students);
